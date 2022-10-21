@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 80px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.font1 {
+  font-size: 5vw;
+}
+
+.box1 {
+  font-size: 2vw;
+  padding: 17px 70px;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
+.wrapper2 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.graphic1 {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
+.graphic2 {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}

@@ -15,6 +15,9 @@ node_modules
 # testing
 /coverage
 
+/frontend/dist
+/frontend/.parcel-cache
+
 # production
 /build
 
