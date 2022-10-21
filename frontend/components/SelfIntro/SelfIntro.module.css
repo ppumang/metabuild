@@ -45,6 +45,7 @@
 }
 .back_arrow {
   margin-right: 15px;
+  cursor: pointer;
 }
 
 .font1 {

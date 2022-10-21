@@ -2,14 +2,19 @@ import "regenerator-runtime/runtime";
 import React from "react";
 
 import Styles from "./SelfIntro.module.css";
+import { useNavigate } from "react-router-dom";
 
 const GNB = () => {
+  const navigate = useNavigate();
   return (
     <div className={Styles.GNB_container}>
       <div className={Styles.wrapper2}>
         <img
           src={require("../../assets/images/back-arrow-circle.png")}
           className={Styles.back_arrow}
+          onClick={() => {
+            navigate(-1);
+          }}
         />
         <span className={Styles.font5}>SELF-INTRODUCTION</span>
       </div>
@@ -57,7 +62,7 @@ export default function SelfIntro({ isSignedIn, helloNEAR, wallet }) {
                 <span className={Styles.font4}>{x.title}</span>
                 <div className={Styles.attributes_container}>
                   {x.contents.map((y, idx) => (
-                    <div className={Styles.attribute_box}>
+                    <div className={Styles.attribute_box} key={idx}>
                       <span key={idx} className={Styles.font3}>
                         {y}
                       </span>
