@@ -1,45 +1,25 @@
 import "regenerator-runtime/runtime";
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Styles from "./Greeting.module.css";
 
-import {
-  EducationalText,
-  SignInPrompt,
-  SignOutButton,
-} from "../../ui-components";
+const pages = [
+  {
+    title: "CREATOR",
+    href: "/SelfIntro",
+  },
+  {
+    title: "INVESTOR",
+    href: "/SelfIntro",
+  },
+  {
+    title: "CONSUMER",
+    href: "/SelfIntro",
+  },
+];
 
 export default function Greeting({ isSignedIn, helloNEAR, wallet }) {
-  const [valueFromBlockchain, setValueFromBlockchain] = React.useState();
-
-  const [uiPleaseWait, setUiPleaseWait] = React.useState(true);
-
-  // Get blockchian state once on component load
-  React.useEffect(() => {
-    helloNEAR
-      .getGreeting()
-      .then(setValueFromBlockchain)
-      .catch(alert)
-      .finally(() => {
-        setUiPleaseWait(false);
-      });
-  }, []);
-
-  function changeGreeting(e) {
-    e.preventDefault();
-    setUiPleaseWait(true);
-    const { greetingInput } = e.target.elements;
-    helloNEAR
-      .setGreeting(greetingInput.value)
-      .then(async () => {
-        return helloNEAR.getGreeting();
-      })
-      .then(setValueFromBlockchain)
-      .finally(() => {
-        setUiPleaseWait(false);
-      });
-  }
-
   return (
     <div className={Styles.container}>
       <div className={Styles.wrapper}>
@@ -47,9 +27,27 @@ export default function Greeting({ isSignedIn, helloNEAR, wallet }) {
           HELLO <br /> WELCOME TO MULTI-OURS
         </span>
         <div className={Styles.wrapper2}>
-          <span className={Styles.box1}>CREATOR</span>
-          <span className={Styles.box1}>INVESTOR</span>
-          <span className={Styles.box1}>CONSUMER</span>
+          {pages.map((page, idx) => (
+            <Link
+              to={isSignedIn ? page.href : "/"}
+              key={idx}
+              style={{ color: "white" }}
+            >
+              <span
+                key={idx}
+                className={Styles.box1}
+                onClick={() => {
+                  if (isSignedIn) {
+                    console.log("signed in");
+                  } else {
+                    wallet.signIn();
+                  }
+                }}
+              >
+                {page.title}
+              </span>
+            </Link>
+          ))}
         </div>
         <img
           src={require("../../assets/images/index-graphic1.png")}

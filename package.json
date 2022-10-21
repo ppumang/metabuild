@@ -20,6 +20,10 @@
     "@near-wallet-selector/core": "^7.1.0",
     "@near-wallet-selector/ledger": "^7.1.0",
     "@near-wallet-selector/my-near-wallet": "^7.1.0",
-    "near-api-js": "^0.44.2"
+    "near-api-js": "^0.44.2",
+    "react-router-dom": "^6.4.2"
+  },
+  "alias": {
+    "process": false
   }
 }

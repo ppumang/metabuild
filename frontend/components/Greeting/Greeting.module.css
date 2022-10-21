@@ -24,6 +24,7 @@
   padding: 17px 70px;
   border: 1px solid white;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 .wrapper2 {
@@ -36,10 +37,12 @@
 .graphic1 {
   position: absolute;
   right: 0;
+  top: 20vh;
   z-index: -1;
 }
 .graphic2 {
   position: absolute;
   right: 0;
   z-index: -1;
+  bottom: 15vh;
 }
